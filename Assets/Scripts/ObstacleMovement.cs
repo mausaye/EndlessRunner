@@ -19,12 +19,11 @@ public class ObstacleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.Translate(-velocity*acc*Time.deltaTime, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+        this.gameObject.transform.Translate(-velocity*acc*Time.deltaTime, 0, 0);
         velocity += acc;
         acc += UIManager.round * increaseSpeed * Time.deltaTime;
-        Debug.Log(UIManager.round);
 
-        if(this.transform.position.x < -15)
+        if(this.transform.position.x < -15 || this.transform.position.x > 15 || this.transform.position.y < -15 || this.transform.position.y > 15)
         {
             Destroy(this.gameObject);
         }

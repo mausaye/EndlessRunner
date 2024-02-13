@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public static bool isGameOver;
     private bool isPause;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +31,10 @@ public class UIManager : MonoBehaviour
         pauseText.text = "PAUSED";
        
         pauseMenu.SetActive(false);
+        resumeButton.onClick.AddListener(resume);
         pauseButton.onClick.AddListener(pause);
 
-        resumeButton.onClick.AddListener(resume);
+        
     }
 
     // Update is called once per frame
@@ -61,7 +64,6 @@ public class UIManager : MonoBehaviour
         //gameOverText.text = "Game Over!\n Score: " + UIManager.round;
         SceneManager.LoadScene("GameOverScene");
         gameOverText.text = "Game Over!\n Score: " + round;
-
 
     }
 

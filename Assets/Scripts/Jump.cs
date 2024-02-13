@@ -28,9 +28,9 @@ public class Jump : MonoBehaviour
         yPos += velocity;
         yPos *= Time.deltaTime;
         
-        this.transform.Translate(this.gameObject.transform.position.x, yPos, this.gameObject.transform.position.z);
+        this.transform.Translate(-6 * Time.deltaTime, yPos, 0);
 
-        if(yPos < -5)
+        if(yPos < -1)
           Destroy(this.gameObject);
 
         if (counter > 0.15) acc = gravity;

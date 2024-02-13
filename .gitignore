@@ -4,3 +4,7 @@
 /Assembly-CSharp.csproj
 /UserSettings
 .vsconfig
+*.meta
+.vs/
+Assets/UI\ Toolkit/
+obj/
