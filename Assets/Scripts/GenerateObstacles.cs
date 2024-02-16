@@ -13,11 +13,13 @@ public class GenerateObstacles : MonoBehaviour
     float tileSize;
     float offset;
     [SerializeField] private GameObject obstaclePreFab;
+    [SerializeField] private GameObject puffMobPreFab;
+    [SerializeField] private GameObject puffPreFab;
     [SerializeField] private GameObject acornPrefab;
     [SerializeField] private GameObject throwingMobPreFab;
     [SerializeField] private GameObject obstacleGroup;
     [SerializeField] private GameObject jumpMobPrefab;
-    GameObject[] mobs;
+    [SerializeField] private GameObject warning;
     private static int numMobs = 3;
     Canvas obCanvas;
     public static bool obstacleCleared;
@@ -32,11 +34,6 @@ public class GenerateObstacles : MonoBehaviour
 
         obstacleCleared = true;
 
-        mobs = new GameObject[numMobs];
-        mobs[0] = obstaclePreFab;
-        mobs[1] = throwingMobPreFab;
-        mobs[2] = jumpMobPrefab;
-
     }
 
     // Update is called once per frame
@@ -47,62 +44,87 @@ public class GenerateObstacles : MonoBehaviour
         tileSize = screenHeight / numTiles;
 
         if (obstacleCleared){
-            //generateJumpMod();
-            //createObstacle();
-            generateThrowingMod();
+            generateRandom();
             incrementRound();
         }
 
         if (this.obstacleGroup.transform.childCount == 0 && !obstacleCleared)
         {
             obstacleCleared = true;
-           
         }
-
     }
 
+    void generateRandom()
+    {
+        int random = Random.Range(0, 3);
+        createObstacle();
+
+        switch (random)
+        {
+            case 0:
+                generateJumpMod();
+                break;
+            case 1:
+                generatePuffMod(Random.Range(-4,4));
+                break;
+            case 2:
+                generateThrowingMod();
+                break;
+        }
+        
+    }
+
+    IEnumerator delayInstantiate(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        var obj = Instantiate(jumpMobPrefab, new Vector3(7, -5, 0), Quaternion.identity);
+        obj.AddComponent<Jump>();
+        obj.transform.parent = this.obstacleGroup.transform;
+
+    }
     void generateJumpMod()
     {
         obstacleCleared = false;
-        var obj = Instantiate(jumpMobPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        obj.AddComponent<Jump>();
-        //obj.AddComponent<ObstacleMovement>();
-        obj.transform.parent = this.obstacleGroup.transform;
-        //obj.transform.localScale = new Vector3(tileSize, tileSize, tileSize);
+        var warningObj = Instantiate(warning, new Vector3(7, -4, 0), Quaternion.identity);
+        Destroy(warningObj, 1);
+        StartCoroutine(delayInstantiate(1));
 
     }
 
+    void generatePuffMod(int y)
+    {
+        obstacleCleared = false;
+        var obj = Instantiate(puffMobPreFab, new Vector3(7, y, 0), Quaternion.identity);
+        var puffObj = obj.AddComponent<PoofBehavior>();
+        puffObj.puffPrefab = puffPreFab;
+        puffObj.puffMob = obj;
+        obj.transform.parent = this.obstacleGroup.transform;
+
+    }
     void generateThrowingMod()
     {
         obstacleCleared = false;
-        var obj = Instantiate(throwingMobPreFab, new Vector3(0, -5, 0), Quaternion.identity);
+        var obj = Instantiate(throwingMobPreFab, new Vector3(7, -5, 0), Quaternion.identity);
         var throwObj = obj.AddComponent<ThrowingBehavior>();
-        
         throwObj.acornPrefab = acornPrefab;
         throwObj.throwingMob = obj;
-        //obj.AddComponent<ObstacleMovement>();
         obj.transform.parent = this.obstacleGroup.transform;
-        //obj.transform.localScale = new Vector3(tileSize, tileSize, tileSize);
     }
 
-        void createObstacle()
+    void createObstacle()
     {
         obstacleCleared = false;
-        int randV = Random.Range(0, numTiles);
+        int randV = Random.Range(-4, -1);
+        int randV2 = Random.Range(-1, 2);
+        int randV3 = Random.Range(2, 5);
 
-        // for (int i = 0; i <= 1; i++)
-        //{ 
-        //   if (i == randV || i == randV + 1) continue;
-        
-        var obj = Instantiate(obstaclePreFab, new Vector3(10,0, 0), Quaternion.identity);
-        
+        var obj = Instantiate(obstaclePreFab, new Vector3(10, randV, 0), Quaternion.identity);
+        var obj2 = Instantiate(obstaclePreFab, new Vector3(10, randV2, 0), Quaternion.identity);
+        var obj3 = Instantiate(obstaclePreFab, new Vector3(10, randV3, 0), Quaternion.identity);
+
         obj.transform.parent = this.obstacleGroup.transform;
-       
-        // obj.transform.localScale = new Vector3(tileSize, tileSize, tileSize);
-        // }
-
-
-
+        obj2.transform.parent = this.obstacleGroup.transform;
+        obj3.transform.parent = this.obstacleGroup.transform;
     }
 
     public void incrementRound()

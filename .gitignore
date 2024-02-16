@@ -8,3 +8,4 @@
 .vs/
 Assets/UI\ Toolkit/
 obj/
+*.json

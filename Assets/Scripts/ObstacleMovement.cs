@@ -21,7 +21,8 @@ public class ObstacleMovement : MonoBehaviour
     {
         this.gameObject.transform.Translate(-velocity*acc*Time.deltaTime, 0, 0);
         velocity += acc;
-        acc += UIManager.round * increaseSpeed * Time.deltaTime;
+        acc += (increaseSpeed * (UIManager.round/1.5f) * Time.deltaTime);
+        
 
         if(this.transform.position.x < -15 || this.transform.position.x > 15 || this.transform.position.y < -15 || this.transform.position.y > 15)
         {

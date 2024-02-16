@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    float velocity = 0.0f;
+    float velocity = 5.0f;
     float acc;
-    float accInit = -125;
+    float accInit = -100;
     float gravity = 30f;
     float yPos;
-    float maxY = 10;
     float counter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
         acc = accInit;
         yPos = this.gameObject.transform.position.y;
     }
@@ -35,8 +33,9 @@ public class Jump : MonoBehaviour
 
         if (counter > 0.15) acc = gravity;
         counter += Time.deltaTime;
-        Debug.Log(counter);
+       // Debug.Log(counter);
         //Debug.Log(this.gameObject.transform.position.x +" " +this.gameObject.transform.position.y);
 
     }
+
 }

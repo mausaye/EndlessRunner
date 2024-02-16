@@ -19,6 +19,7 @@ public class ThrowingBehavior : MonoBehaviour
         this.isThrowing = false;
         player = GameObject.Find("Player"); // TODO: find better way to do this
         lastKnownPlayerPosition = new Vector3(0, 0, 0);
+        Debug.Log("start");
     }
 
     void Update()
@@ -36,10 +37,12 @@ public class ThrowingBehavior : MonoBehaviour
 
         }
 
-        transform.Translate(-Time.deltaTime, 0, 0);
+        transform.Translate(-Time.deltaTime * 3, 0, 0);
 
-        if (Helpers.outOfBound(this.gameObject)) Destroy(this.gameObject);
-        
+        if (Helpers.outOfBound(this.gameObject))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void updateAcornPosition()
@@ -54,8 +57,6 @@ public class ThrowingBehavior : MonoBehaviour
             Destroy(acorn);
             isThrowing = false;
         }
-
-
 
     }
 }

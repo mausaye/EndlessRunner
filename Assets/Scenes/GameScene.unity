@@ -237,10 +237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePreFab: {fileID: 19384743095258760, guid: 296782200b160459dbb36ec0f805435c, type: 3}
+  puffMobPreFab: {fileID: 6561359233217547784, guid: f91ec813360fa4ea3b9c77156ecfc2f9, type: 3}
+  puffPreFab: {fileID: 2400835068267782464, guid: e0411b1f76f1e4731af6c23ff0f943af, type: 3}
   acornPrefab: {fileID: 2400835068267782464, guid: e0411b1f76f1e4731af6c23ff0f943af, type: 3}
   throwingMobPreFab: {fileID: 19384743095258760, guid: 3dbd9ec6e52e24bacbda4d8614a3af28, type: 3}
   obstacleGroup: {fileID: 754834775}
   jumpMobPrefab: {fileID: 8957750157481055059, guid: 152fe58453436478686b4251633ae1ee, type: 3}
+  warning: {fileID: 7815335252079024774, guid: 5f1d84f5cb22e43ee9997b31c1543690, type: 3}
 --- !u!1 &53857624
 GameObject:
   m_ObjectHideFlags: 0

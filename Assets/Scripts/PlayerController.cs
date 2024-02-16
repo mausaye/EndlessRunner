@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             // this.y = this.y - 1;
             this.gameObject.transform.Translate(speed * Time.deltaTime,0, 0);
         } 
-        Debug.Log(Screen.width + " " + Screen.height);
+//        Debug.Log(Screen.width + " " + Screen.height);
 
 
     }
