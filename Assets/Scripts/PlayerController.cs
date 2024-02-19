@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 maxBounds;
     private Vector3 objectSize;
 
+    private Animator animator;
     [SerializeField] KeyCode left;
     [SerializeField] KeyCode right;
     [SerializeField] KeyCode up;
@@ -23,7 +24,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        this.animator = this.gameObject.GetComponent<Animator>();
         CalculateBounds();
+
         
     }
 
@@ -61,8 +64,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       
-       UIManager.isGameOver = true ;
+        Debug.Log("hit!");
+        animator.SetBool("isHit", true);
+        StartCoroutine(gameOverAnimation());
+    }
+
+    private IEnumerator gameOverAnimation()
+    {
+        yield return new WaitForSeconds(2);
+        UIManager.isGameOver = true;
     }
 
 

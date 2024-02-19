@@ -10,10 +10,12 @@ public class Jump : MonoBehaviour
     float gravity = 30f;
     float yPos;
     float counter = 0;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.anim = this.gameObject.GetComponent<Animator>();
         acc = accInit;
         yPos = this.gameObject.transform.position.y;
     }
@@ -33,9 +35,16 @@ public class Jump : MonoBehaviour
 
         if (counter > 0.15) acc = gravity;
         counter += Time.deltaTime;
-       // Debug.Log(counter);
+
+        if (isFalling()) anim.SetBool("JumpDown", true);
+        // Debug.Log(counter);
         //Debug.Log(this.gameObject.transform.position.x +" " +this.gameObject.transform.position.y);
 
+    }
+
+    public bool isFalling()
+    {
+        return velocity <= 0;
     }
 
 }

@@ -44,6 +44,8 @@ public class GenerateObstacles : MonoBehaviour
         tileSize = screenHeight / numTiles;
 
         if (obstacleCleared){
+            //generatePuffMod(0);
+            //generateJumpMod();
             generateRandom();
             incrementRound();
         }
