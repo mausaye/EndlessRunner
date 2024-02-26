@@ -7,11 +7,9 @@ using UnityEngine.UI;
 
 public class GenerateObstacles : MonoBehaviour
 {
-    int screenWidth;
-    int screenHeight;
-    static int numTiles = 10;
-    float tileSize;
-    float offset;
+    [SerializeField] private GameObject cloud1;
+    [SerializeField] private GameObject cloud2;
+    [SerializeField] private GameObject cloud3;
     [SerializeField] private GameObject obstaclePreFab;
     [SerializeField] private GameObject puffMobPreFab;
     [SerializeField] private GameObject puffPreFab;
@@ -23,6 +21,7 @@ public class GenerateObstacles : MonoBehaviour
     private static int numMobs = 3;
     Canvas obCanvas;
     public static bool obstacleCleared;
+    private GameObject[] clouds;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +32,16 @@ public class GenerateObstacles : MonoBehaviour
         obCanvas.worldCamera = Camera.main;
 
         obstacleCleared = true;
+        clouds = new GameObject[3];
+        clouds[0] = cloud1;
+        clouds[1] = cloud2;
+        clouds[2] = cloud3;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        screenHeight = Screen.height;
-        screenWidth = Screen.width;
-        tileSize = screenHeight / numTiles;
 
         if (obstacleCleared){
             //generatePuffMod(0);
@@ -106,7 +106,7 @@ public class GenerateObstacles : MonoBehaviour
     void generateThrowingMod()
     {
         obstacleCleared = false;
-        var obj = Instantiate(throwingMobPreFab, new Vector3(7, -5, 0), Quaternion.identity);
+        var obj = Instantiate(throwingMobPreFab, new Vector3(10, -4, 0), Quaternion.identity);
         var throwObj = obj.AddComponent<ThrowingBehavior>();
         throwObj.acornPrefab = acornPrefab;
         throwObj.throwingMob = obj;
@@ -120,9 +120,9 @@ public class GenerateObstacles : MonoBehaviour
         int randV2 = Random.Range(-1, 2);
         int randV3 = Random.Range(2, 5);
 
-        var obj = Instantiate(obstaclePreFab, new Vector3(10, randV, 0), Quaternion.identity);
-        var obj2 = Instantiate(obstaclePreFab, new Vector3(10, randV2, 0), Quaternion.identity);
-        var obj3 = Instantiate(obstaclePreFab, new Vector3(10, randV3, 0), Quaternion.identity);
+        var obj = Instantiate(clouds[Random.Range(0,2)], new Vector3(10, randV, 0), Quaternion.identity);
+        var obj2 = Instantiate(clouds[Random.Range(0, 2)], new Vector3(10, randV2, 0), Quaternion.identity);
+        var obj3 = Instantiate(clouds[Random.Range(0, 2)], new Vector3(10, randV3, 0), Quaternion.identity);
 
         obj.transform.parent = this.obstacleGroup.transform;
         obj2.transform.parent = this.obstacleGroup.transform;

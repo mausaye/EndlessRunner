@@ -20,13 +20,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode up;
     [SerializeField] KeyCode down;
 
+    private GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         this.animator = this.gameObject.GetComponent<Animator>();
         CalculateBounds();
-
+        gm = GameManager.Instance;
         
     }
 
@@ -64,9 +66,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hit!");
-        animator.SetBool("isHit", true);
-        StartCoroutine(gameOverAnimation());
+        if (collision.gameObject.name.Equals("Player")) {
+            //Do nothing
+        } else if (collision.gameObject.name.Equals("Star")){
+            UIManager.round++;
+            gm.starGenerated = false;
+            Destroy(GameObject.Find("Star"));
+
+        } else {
+            animator.SetBool("isHit", true);
+            Debug.Log(collision.gameObject.name);
+            StartCoroutine(gameOverAnimation());
+        }
+        
     }
 
     private IEnumerator gameOverAnimation()

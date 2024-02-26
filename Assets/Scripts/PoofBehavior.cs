@@ -42,16 +42,16 @@ public class PoofBehavior : MonoBehaviour
 
     void deleteOutOfBounds(GameObject puff)
     {
-        if (Helpers.outOfBound(puff))
+        if (puff && Helpers.outOfBound(puff))
         {
-            Destroy(puff);
-            counter++;
 
-            if(counter == 3)
+            for (int i = 0; i < 3; i++)
             {
-                isPuffing = false;
-                counter = 0;
+                Destroy(puffs[i]);
             }
+            
+            isPuffing = false;
+            
             
         }
     }

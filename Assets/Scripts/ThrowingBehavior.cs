@@ -10,9 +10,10 @@ public class ThrowingBehavior : MonoBehaviour
     private bool isThrowing;
     GameObject acorn;
     private Vector3 lastKnownPlayerPosition;
+    private Animator animator;
 
     // Start is called before the first frame update
-     
+
 
     void Start()
     {
@@ -20,20 +21,24 @@ public class ThrowingBehavior : MonoBehaviour
         player = GameObject.Find("Player"); // TODO: find better way to do this
         lastKnownPlayerPosition = new Vector3(0, 0, 0);
         Debug.Log("start");
+        this.animator = this.gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
         if (!isThrowing)
         {
+
             acorn = Instantiate(acornPrefab, new Vector3(throwingMob.transform.position.x, throwingMob.transform.position.y, 0), Quaternion.identity);
             acorn.transform.parent = throwingMob.transform;
             lastKnownPlayerPosition = player.transform.position;
             isThrowing = true;
+            this.animator.SetBool("isThrowing", true);
 
         } else
         {
             updateAcornPosition();
+            this.animator.SetBool("isThrowing", false);
 
         }
 
