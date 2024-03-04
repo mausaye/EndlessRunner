@@ -28,8 +28,7 @@ public class UIManager : MonoBehaviour
         isPause = false;
 
         TMPro.TextMeshPro pauseText = new TMPro.TextMeshPro();
-        pauseText.text = "PAUSED";
-       
+        score.gameObject.SetActive(true);
         pauseMenu.SetActive(false);
         resumeButton.onClick.AddListener(resume);
         pauseButton.onClick.AddListener(pause);

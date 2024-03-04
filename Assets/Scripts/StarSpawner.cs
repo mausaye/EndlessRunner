@@ -25,14 +25,14 @@ public class StarSpawner : MonoBehaviour
         starCanvas = starGroup.GetComponent<Canvas>();
         starCanvas.renderMode = RenderMode.ScreenSpaceCamera;
         starCanvas.worldCamera = Camera.main;
-        randomIterations = Random.Range(2, 3);
+        randomIterations = Random.Range(4, 7);
       
     }
 
     void Update()
     {
         // Checks if the number of iterations has passed, generate star if so
-        if (randomIterations - UIManager.round == 0 && !gm.starGenerated)
+        if (randomIterations - UIManager.round <= 0 && !gm.starGenerated)
         {
             generateStar();
             gm.starGenerated = true;
