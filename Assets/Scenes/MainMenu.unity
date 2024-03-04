@@ -224,6 +224,7 @@ MonoBehaviour:
   howToPlayMenu: {fileID: 1037640491}
   returnButton: {fileID: 1964100323}
   exitButton: {fileID: 1409789700}
+  title: {fileID: 1454090973}
   singleButton: {fileID: 1249874755}
   multiButton: {fileID: 1935699972}
 --- !u!114 &976491356
