@@ -5,16 +5,21 @@ using UnityEngine;
 
 public class StarSpawner : MonoBehaviour
 {
+    // Star prefabs
     [SerializeField] private GameObject starPrefab;
     [SerializeField] private GameObject starGroup;
+
     GameManager gm;
+
     Canvas starCanvas;
-    private int randomIterations;
-    private int roundCounter = 0;
     private GameObject currentStar;
-    // Start is called before the first frame update
+
+    // Number of rounds until star reappears
+    private int randomIterations;
+
     void Start()
     {
+        // Init game manager, canvas, and set random iterations
         gm = GameManager.Instance;
         starGroup.AddComponent<Canvas>();
         starCanvas = starGroup.GetComponent<Canvas>();
@@ -24,15 +29,14 @@ public class StarSpawner : MonoBehaviour
       
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Checks if the number of iterations has passed, generate star if so
         if (randomIterations - UIManager.round == 0 && !gm.starGenerated)
         {
             generateStar();
             gm.starGenerated = true;
-            randomIterations = UIManager.round + Random.Range(2, 3);
+            randomIterations = (int)UIManager.round + Random.Range(2, 3);
         }
       
     }
@@ -40,6 +44,7 @@ public class StarSpawner : MonoBehaviour
     void generateStar()
     {
         currentStar = Instantiate(starPrefab, new Vector3(Random.Range(-4,4), Random.Range(-4, 4), 0), Quaternion.identity);
+        currentStar.layer = LayerMask.NameToLayer("UI");
         currentStar.transform.parent = this.starGroup.transform;
         currentStar.name = "Star";
     }

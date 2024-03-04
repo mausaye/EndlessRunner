@@ -5,23 +5,28 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class PoofBehavior : MonoBehaviour
 {
+    // Puff gameobject prefabs
     public GameObject puffPrefab;
     public GameObject puffMob;
+
+    // Whether currently spawning puffs
     private bool isPuffing;
+
+    // Stores the puffs generated
     private GameObject[] puffs;
     private int numPuffs;
-    private int counter;
 
     void Start()
     {
+        // Initialize puff mob
         this.isPuffing = false;
         numPuffs = 3;
-        counter = 0;
         puffs = new GameObject[numPuffs];
     }
 
     void Update()
     {
+        // If no puffs, generate three puffs 
         if (!isPuffing)
         {
             for(int i = 0; i < numPuffs; i++)
@@ -31,8 +36,12 @@ public class PoofBehavior : MonoBehaviour
             }
             isPuffing = true;
         }
-        else { updatePuffPosition(); }
+        else {
+            // Update puff position if exist
+            updatePuffPosition();
+        }
 
+        // Destory on out of bounds
         if (Helpers.outOfBound(this.gameObject))
         {
             Destroy(this.gameObject);
@@ -40,6 +49,7 @@ public class PoofBehavior : MonoBehaviour
 
     }
 
+    // Destroy all puffs on single puff out of bounds
     void deleteOutOfBounds(GameObject puff)
     {
         if (puff && Helpers.outOfBound(puff))
@@ -51,8 +61,7 @@ public class PoofBehavior : MonoBehaviour
             }
             
             isPuffing = false;
-            
-            
+
         }
     }
 

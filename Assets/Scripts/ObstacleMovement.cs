@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
+    // obstacle speed
     float velocity;
-    float acc;
-    float increaseSpeed;
 
-    // Start is called before the first frame update
     void Start()
     {
-         velocity = 0f;
-         acc = 0.01f;
-         increaseSpeed = 0.01f;
+         velocity = Random.Range(2,4);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.Translate(-velocity*acc*Time.deltaTime, 0, 0);
-        velocity += acc;
-        acc += (increaseSpeed * (UIManager.round/1.5f) * Time.deltaTime);
-        
+        // Moves obstacles at a constant rate for first 10 rounds then as rounds increase, speed marginally increases
+        this.gameObject.transform.Translate(-velocity * (UIManager.round <= 10? 1: UIManager.round/10) *Time.deltaTime, 0, 0);
 
-        if(this.transform.position.x < -15 || this.transform.position.x > 15 || this.transform.position.y < -15 || this.transform.position.y > 15)
+        if(Helpers.outOfBound(this.gameObject))
         {
             Destroy(this.gameObject);
         }

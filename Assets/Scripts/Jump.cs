@@ -4,42 +4,44 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    float velocity = 5.0f;
-    float acc;
-    float accInit = -100;
-    float gravity = 30f;
-    float yPos;
-    float counter = 0;
-    Animator anim;
+    // Jump mob simple physics
+    private float velocity = 5.0f;
+    private float acc;
+    private float accInit = -100;
+    private float gravity = 30f;
+    private float yPos;
+    private float counter = 0;
+    private Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Initialize animator and position of mob
         this.anim = this.gameObject.GetComponent<Animator>();
         acc = accInit;
         yPos = this.gameObject.transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-    
+
+        // Updates the velocity to mimic real life (kinda)
         velocity -= acc * Time.deltaTime;
         yPos += velocity;
         yPos *= Time.deltaTime;
         
         this.transform.Translate(-6 * Time.deltaTime, yPos, 0);
 
-        if(yPos < -1)
+        // Destroy if out of bounds
+        if (Helpers.outOfBound(this.gameObject))
           Destroy(this.gameObject);
 
+        // Gives some time before object falls
         if (counter > 0.15) acc = gravity;
         counter += Time.deltaTime;
 
+        // Set animation for falling
         if (isFalling()) anim.SetBool("JumpDown", true);
-        // Debug.Log(counter);
-        //Debug.Log(this.gameObject.transform.position.x +" " +this.gameObject.transform.position.y);
-
+      
     }
 
     public bool isFalling()

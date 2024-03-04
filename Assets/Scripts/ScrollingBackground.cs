@@ -6,13 +6,8 @@ public class ScrollingBackground : MonoBehaviour
 {
     public float speed;
     [SerializeField] Renderer render;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    // Offset the material such that the background moves
     void Update() 
     {
         render.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
