@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         round = 0;
         isGameOver = false;
         isPause = false;
