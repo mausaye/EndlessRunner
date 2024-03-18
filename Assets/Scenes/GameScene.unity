@@ -214,7 +214,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -234,23 +234,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 17795741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1fb9977abcd74d7ba5e5f9107941b4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ab2898d35ef4034b4c57e67869607c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud1: {fileID: 4036858345457881975, guid: d278ecd613ce9467dbb67a5e1500252b, type: 3}
-  cloud2: {fileID: 2440489771940100248, guid: d9bfec72276e44d09ae3e790f6d896b6, type: 3}
-  cloud3: {fileID: 506059759979558145, guid: ef8e520de18ab42ccb850171f74c8f69, type: 3}
-  cloud4: {fileID: 6293763464210554560, guid: b1f001569480a42ff883227b68c3cb77, type: 3}
-  cloud5: {fileID: 2414733687262290655, guid: 90452f1933929447e8ba358f54580cb4, type: 3}
-  cloud6: {fileID: 6210391362972747506, guid: 8115bc2e80f6445a4a3f91d7e430412a, type: 3}
-  obstaclePreFab: {fileID: 19384743095258760, guid: 296782200b160459dbb36ec0f805435c, type: 3}
-  puffMobPreFab: {fileID: 6561359233217547784, guid: f91ec813360fa4ea3b9c77156ecfc2f9, type: 3}
-  puffPreFab: {fileID: 2400835068267782464, guid: e0411b1f76f1e4731af6c23ff0f943af, type: 3}
-  acornPrefab: {fileID: 2400835068267782464, guid: e0411b1f76f1e4731af6c23ff0f943af, type: 3}
-  throwingMobPreFab: {fileID: 19384743095258760, guid: 3dbd9ec6e52e24bacbda4d8614a3af28, type: 3}
+  cloud1: {fileID: 4036858345457881975, guid: 09d93e5f234ce430089799b32d7798cd, type: 3}
+  cloud2: {fileID: 2440489771940100248, guid: 970c2f57dea3d4075abfad33b1168179, type: 3}
+  cloud3: {fileID: 506059759979558145, guid: d5731c1870de84dfb8c187b284a08f24, type: 3}
+  cloud4: {fileID: 6293763464210554560, guid: 1718455249085479ba4f890afa42e5ea, type: 3}
+  cloud5: {fileID: 2414733687262290655, guid: 5bd0475d5e58f424d80e71ec4ae93e32, type: 3}
+  cloud6: {fileID: 6210391362972747506, guid: d3819197e0f1b4a7d9e2d0b91a9064be, type: 3}
+  puffMobPreFab: {fileID: 6561359233217547784, guid: ccd3aab76f1974ef5a5ac1624e6dfea1, type: 3}
+  puffPreFab: {fileID: 2400835068267782464, guid: d18ad826eb1c44f52ae5f738b31e9b7b, type: 3}
+  acornPrefab: {fileID: 2400835068267782464, guid: d18ad826eb1c44f52ae5f738b31e9b7b, type: 3}
+  throwingMobPreFab: {fileID: 19384743095258760, guid: fceb07afd1ed043459ed60fc88461b5e, type: 3}
   obstacleGroup: {fileID: 754834775}
   jumpMobPrefab: {fileID: 8957750157481055059, guid: 152fe58453436478686b4251633ae1ee, type: 3}
-  warning: {fileID: 7815335252079024774, guid: 5f1d84f5cb22e43ee9997b31c1543690, type: 3}
+  warning: {fileID: 7815335252079024774, guid: 4e52b9118e55845cda1352c0e9a3cdcb, type: 3}
 --- !u!1 &53857624
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,10 +350,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 376800580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -889.21436, y: 482.6872}
-  m_SizeDelta: {x: 2.69, y: 2.38}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 70.785645, y: -54.3}
+  m_SizeDelta: {x: 2.6900024, y: 2.380005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &235800298
 CanvasRenderer:
@@ -384,7 +383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3061329502678796966, guid: 43e8bd215b3ae409e912d14eb8fc1330, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e58df798b7a34743b4017ed9084394d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -949,7 +948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8878088185706026076, guid: 0e23b26ed6b35477fb7e81c4fc45069f, type: 3}
+  m_Sprite: {fileID: -8878088185706026076, guid: 37c2aa9e3b8974c1cb2fddaeb8ef5077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1047,10 +1046,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 928015401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f03643ae52a0943d2956c75d47808beb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0fb6c5a38b340bebdac02c97a897a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starPrefab: {fileID: 6208564783692346283, guid: 9ebaf581b73d64b588052d14982772b3, type: 3}
+  starPrefab: {fileID: 6208564783692346283, guid: 548f9cf3fc4e841f3985086a169f0c09, type: 3}
   starGroup: {fileID: 928015401}
 --- !u!1 &1046254479
 GameObject:
@@ -1097,11 +1096,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046254479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0874c62e5784fc9b73b54502a078d1, type: 3}
+  m_Script: {fileID: 11500000, guid: d8391ebc88d27484396189b347c9122d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 171785274433004545, guid: 3a35af727725d46bea4c5e2b2a83f141, type: 3}
-  player2Prefab: {fileID: 171785274433004545, guid: 96d61dd4d77e148fba369ff73d494608, type: 3}
+  player2Prefab: {fileID: 171785274433004545, guid: 52d3574e695f9413fa543c30c580cc6e, type: 3}
 --- !u!1 &1206296807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206296807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c35366894cd964486b03545476420032, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fe5ff221bf6a41c692c3e6ea58c6388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1809035720}
@@ -1162,7 +1161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206296807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f253de6b294cc4c4b8939de2903c742a, type: 3}
+  m_Script: {fileID: 11500000, guid: b4a5cb730fce44d6195efb05b33b49ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   starGenerated: 0
@@ -1268,7 +1267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -995779289211046693, guid: 44740948a4c484cc1a182dc9faa65f3e, type: 3}
+  m_Sprite: {fileID: -995779289211046693, guid: f68c71b3578034fc189f76150d720198, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1352,7 +1351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 202, y: -41}
+  m_AnchoredPosition: {x: 202, y: -35.08716}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809035720
@@ -1514,7 +1513,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5897da0d00fe442f3aa86b7c1131fa0a, type: 2}
+  - {fileID: 2100000, guid: 514b558b87fb24e8a8c2d90b15de243a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1568,10 +1567,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919045898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316f4e29385b74f9aafb08cffc64291d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2034ef6c517eb4a0ca2c832b9a38ecaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 0.02
   render: {fileID: 1919045900}
 --- !u!1 &2075453122
 GameObject:

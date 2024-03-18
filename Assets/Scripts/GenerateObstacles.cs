@@ -14,7 +14,7 @@ public class GenerateObstacles : MonoBehaviour
     [SerializeField] private GameObject cloud4;
     [SerializeField] private GameObject cloud5;
     [SerializeField] private GameObject cloud6;
-    [SerializeField] private GameObject obstaclePreFab;
+ //  [SerializeField] private GameObject obstaclePreFab;
     [SerializeField] private GameObject puffMobPreFab;
     [SerializeField] private GameObject puffPreFab;
     [SerializeField] private GameObject acornPrefab;

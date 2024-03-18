@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 40ab2898d35ef4034b4c57e67869607c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cloud1: {fileID: 4036858345457881975, guid: 09d93e5f234ce430089799b32d7798cd, type: 3}
+  - cloud2: {fileID: 2440489771940100248, guid: 970c2f57dea3d4075abfad33b1168179, type: 3}
+  - cloud3: {fileID: 506059759979558145, guid: d5731c1870de84dfb8c187b284a08f24, type: 3}
+  - cloud4: {fileID: 6293763464210554560, guid: 1718455249085479ba4f890afa42e5ea, type: 3}
+  - cloud5: {fileID: 2414733687262290655, guid: 5bd0475d5e58f424d80e71ec4ae93e32, type: 3}
+  - cloud6: {fileID: 6210391362972747506, guid: d3819197e0f1b4a7d9e2d0b91a9064be, type: 3}
+  - puffMobPreFab: {fileID: 6561359233217547784, guid: ccd3aab76f1974ef5a5ac1624e6dfea1, type: 3}
+  - puffPreFab: {fileID: 2400835068267782464, guid: d18ad826eb1c44f52ae5f738b31e9b7b, type: 3}
+  - acornPrefab: {fileID: 2400835068267782464, guid: d18ad826eb1c44f52ae5f738b31e9b7b, type: 3}
+  - throwingMobPreFab: {fileID: 19384743095258760, guid: fceb07afd1ed043459ed60fc88461b5e, type: 3}
+  - obstacleGroup: {instanceID: 0}
+  - jumpMobPrefab: {fileID: 8957750157481055059, guid: 152fe58453436478686b4251633ae1ee, type: 3}
+  - warning: {fileID: 7815335252079024774, guid: 4e52b9118e55845cda1352c0e9a3cdcb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
